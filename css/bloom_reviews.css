@@ -1,0 +1,230 @@
+
+#ajaxReviewForm {
+    display: block;
+    padding-top: 30px;
+    color: #333;
+}
+#ajaxReviewForm.active {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    z-index: 15;
+    background: #fff;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#ajaxReviewForm .form-headline {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.successResponse {
+    position: absolute;
+    background: white;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    bottom: 100%;
+    left: 0;
+    padding: 0;
+    text-align: center;
+    transition: .6s bottom;
+}
+.successResponse.active {
+    bottom: 0;
+}
+.successResponse span.success-message {
+    font-size: 3em;
+    line-height: 2em;
+}
+.successResponse span.moderation-message {
+    display: block;
+    font-size: 1.3em;
+}
+
+.reviewFormWrapper {
+    background: #efefef;
+}
+.reviewFormWrapper .reviewFormWrapper-inner {
+    background: #fff;
+    padding: 15px 0;
+}
+
+.form-headline,
+.review-vendorName,
+.purchaseInfo,
+.review-header,
+.review-descriptionContainer {
+    text-align: center;
+    line-height: 1.2;
+}
+
+.review-vendorName {
+    font-weight: 200;
+    font-size: 28px;
+}
+
+.purchaseInfo,
+.reviewForm {
+    padding: 30px 10px;
+}
+
+.purchaseInfo .purchaseInfo-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 5px auto;
+}
+.purchaseInfo .purchaseInfo-name {
+    display: block;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.reviewForm {
+    padding-top: 0;
+}
+
+.review-header,
+.review-rating {
+    margin-bottom: 20px;
+}
+
+.review-header {
+    font-weight: 200;
+    font-size: 24px;
+}
+
+.rating-stars,
+#reviewField {
+    margin-bottom: 15px;
+}
+
+.rating-stars {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    white-space: nowrap;
+}
+.rating-stars .star {
+    display: inline-block;
+    position: relative;
+    width: .9em;
+    font-size: 6.428571429em;
+    color: transparent;
+}
+.rating-stars .star:before {
+    transition: .2s color;
+    content: "\2605";
+    color: #C2C2C2;
+    position: absolute;
+}
+.rating-stars .star.active-star, .rating-stars .star:hover {
+    cursor: pointer;
+}
+.rating-stars .star.active-star:before, .rating-stars .star.active-star ~ .star:before, .rating-stars .star:hover:before, .rating-stars .star:hover ~ .star:before {
+    content: "\2605";
+    position: absolute;
+    color: #FC199B;
+}
+
+.rating-descriptionContainer {
+    display: block;
+    color: #ccc;
+    text-align: center;
+    font-size: 14px;
+}
+
+.rating-description {
+    height: 20px;
+    display: block;
+}
+
+#reviewField,
+#reviewSubmit {
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+}
+
+#reviewField {
+    width: 100%;
+    min-height: 100px;
+    box-sizing: border-box;
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    box-shadow: none;
+    resize: none;
+    font-size: 13px;
+}
+#reviewField::-webkit-input-placeholder {
+    color: #999;
+}
+#reviewField:-moz-placeholder {
+    color: #999;
+}
+#reviewField::-moz-placeholder {
+    color: #999;
+}
+#reviewField:-ms-input-placeholder {
+    color: #999;
+}
+
+#reviewSubmit {
+    min-height: 50px;
+    border: 0;
+    border-radius: 2px;
+    background: #4aa244;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .reviewFormWrapper {
+        padding: 30px;
+    }
+
+    .purchaseInfo,
+    .reviewForm {
+        box-sizing: border-box;
+        width: 50%;
+        padding: 30px 55px;
+    }
+
+    .purchaseInfo {
+        float: left;
+        padding-right: 25px;
+    }
+
+    .reviewForm {
+        float: right;
+        padding-left: 25px;
+    }
+
+    .rating-stars .star {
+        font-size: 3.428571429em;
+    }
+}
+#ajaxReviewForm .center-block {
+    margin: 0 auto;
+    max-width: 1040px;
+}
+
+div.subPolicy-preview.js-subPolicy.substitution .first-css-text:after {
+    content: "In some instances, our photo may represent an overall theme or look and include a one-of-a-kind vase which cannot be exactly replicated.";
+}
+
+div.subPolicy-preview.js-subPolicy.substitution .second-css-text:after {
+    content: "Although the actual bouquet may not precisely match the photo, its temperament will. Occasionally, substitutions of flowers and/or containers happen due to weather, seasonality and market conditions which may affect availability. If this is the case with the gift you’ve selected, we will ensure that the style, theme and color scheme of your arrangement is preserved and will only substitute items of equal value or higher value.";
+}
+
+div.subPolicy-preview.js-subPolicy.substitution .third-css-text:after {
+    content: "If any design elements are of major importance to your order, please include them in the florist instructions at checkout or contact us to ensure availability.";
+}

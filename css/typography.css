@@ -1,0 +1,138 @@
+/*************************************************************/
+/*  COPYRIGHT ©2014 BLOOMNATION, INC. | ALL RIGHTS RESERVED  */
+/*************************************************************/
+/*** BLOOM THEME ****/
+/********************/
+
+@font-face {
+	font-family: 'Avenir';
+	src: url('../fonts/AvenirNext-Regular.eot');
+  	src: url('../fonts/AvenirNext-Regular.eot#iefix') format('embedded-opentype'),
+         url('../fonts/AvenirNext-Regular.woff') format('woff'),
+         url('../fonts/AvenirNext-Regular.ttf')  format('truetype');
+    font-weight: 100;
+}
+@font-face {
+	font-family: 'Avenir';
+	src: url('../fonts/AvenirNext-Medium.eot');
+	src: url('../fonts/AvenirNext-Medium.eot#iefix') format('embedded-opentype'),
+         url('../fonts/AvenirNext-Medium.woff') format('woff'),
+         url('../fonts/AvenirNext-Medium.ttf')  format('truetype');
+    font-weight: 200;
+}
+@font-face {
+	font-family: 'Avenir';
+	src: url('../fonts/AvenirNext-UltraLight.eot');
+	src: url('../fonts/AvenirNext-UltraLight.eot#iefix') format('embedded-opentype'),
+         url('../fonts/AvenirNext-UltraLight.woff') format('woff'),
+         url('../fonts/AvenirNext-UltraLight.ttf')  format('truetype');
+    font-weight: 50;
+}
+@font-face {
+	font-family: 'Avenir';
+	src: url('../fonts/AvenirNext-DemiBold.eot');
+	src: url('../fonts/AvenirNext-DemiBold.eot#iefix') format('embedded-opentype'),
+         url('../fonts/AvenirNext-DemiBold.woff') format('woff'),
+         url('../fonts/AvenirNext-DemiBold.ttf')  format('truetype');
+    font-weight: 300;
+}
+@font-face {
+	font-family: 'Avenir';
+	src: url('../fonts/AvenirNext-Bold.eot');
+	src: url('../fonts/AvenirNext-Bold.eot#iefix') format('embedded-opentype'),
+         url('../fonts/AvenirNext-Bold.woff') format('woff'),
+         url('../fonts/AvenirNext-Bold.ttf')  format('truetype');
+    font-weight: 400;
+}
+@import url('css_2.css');
+@import url('css_1.css');
+@import url('css_3.css');
+
+body {
+	font-family: 'Avenir', 'Helvetica', 'Arial', 'sans-serif';
+}
+* {
+	letter-spacing: 0 !important;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+}
+p, 
+span {
+	font-size: 14px;
+	font-weight: inherit;
+}
+b, strong {
+	font-weight: 400;
+}
+i {
+	font-style: italic;
+}
+h1 {
+	font-size: 14px;
+	font-weight: 300 !important;
+	text-transform: capitalize;
+}
+.favorite-text-container h1 {
+	margin-top: 10px !important;
+}
+h2 {
+	font-size: 32px;	
+	font-weight: 100 !important;
+	text-transform: capitalize;
+}
+h2.h2large {
+	font-size: 42px;
+}
+h3 {
+	font-size: 28px;
+	font-weight: 200 !important;
+}
+h4 {
+	font-size: 15px;
+	font-weight: 300 !important;
+}
+h5 {
+	font-size: 14px;
+	font-weight: 200 !important;
+}
+h6 {
+	font-size: 12px;
+	font-weight: 400 !important;
+	text-transform: uppercase;
+}
+span, p {
+	font-weight: 200 !important;
+}
+small {
+	font-weight: 200 !important;
+}
+body.serif * {
+	font-family: 'Marcellus SC', 'Georgia', 'serif';
+}
+body.cursive * {
+	font-family: 'Great Vibes', 'cursive', 'sans-serif';
+}
+.cursive h1, 
+.cursive  h2, 
+.cursive h3 {
+	font-weight: lighter;
+}
+.cursive h4, 
+.cursive h5, 
+.cursive h6, 
+.cursive p, 
+.cursive span, 
+.cursive div,
+.cursive li,
+.cursive a,
+.cursive b,
+.serif p, 
+.serif span, 
+.serif div  {
+	font-family: 'Avenir';
+}
+.serif h4 {
+	font-weight: bolder;
+}

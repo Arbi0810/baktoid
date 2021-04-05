@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html class="noIE" lang="en-US">
+<head><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UA4PVVdRGwUHV1NQBwU=",licenseKey:"0ac16663c3",applicationID:"6732204"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var i,o=t("ee"),a=t(24),c={};try{i=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,i.indexOf("dev")!==-1&&(c.dev=!0),i.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&o.on("internal-error",function(t){r(t.stack)}),c.dev&&o.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{p?p-=1:i(c||new UncaughtException(t,e,n),!0)}catch(f){try{o("ierr",[f,s.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function i(t,e){var n=e?null:s.now();o("err",[t,n])}var o=t("handle"),a=t(25),c=t("ee"),s=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),s.xhrWrappable&&t(10),d=!0)}c.on("fn-start",function(t,e,n){d&&(p+=1)}),c.on("fn-err",function(t,e,n){d&&!n[l]&&(f(n,l,function(){return!0}),this.thrown=!0,i(n))}),c.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),c.on("internal-error",function(t){o("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var i=t("ee"),o=t("handle"),a=t(9),c=t(8),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;i.on(m,function(t,e){var n=t[0];n instanceof x&&(this.bstStart=y.now())}),i.on(w,function(t,e){var n=t[0];n instanceof x&&o("bst",[n,e,this.bstStart,y.now()])}),a.on(m,function(t,e,n){this.bstStart=y.now(),this.bstType=n}),a.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),this.bstType])}),c.on(m,function(){this.bstStart=y.now()}),c.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),"requestAnimationFrame"])}),i.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),i.on(g+h,function(t){o("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&i(e)}function i(t){c.inPlace(t,[u,d],"-",o)}function o(t,e){return t[1]}var a=t("ee").get("events"),c=t("wrap-function")(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(i(window),i(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=o(arguments),e={};i.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var c=r.apply(this,t);return i.emit(n+"start",[t,a],c),c.then(function(t){return i.emit(n+"end",[null,t],c),t},function(t){throw i.emit(n+"end",[t],c),t})})}var i=t("ee").get("fetch"),o=t(25),a=t(24);e.exports=i;var c=window,s="fetch-",f=s+"body-",u=["arrayBuffer","blob","json","text","formData"],d=c.Request,l=c.Response,p=c.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,e){r(d[h],e,f),r(l[h],e,f)}),r(c,"fetch",s),i.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),i.emit(s+"done",[null,e],n)}else i.emit(s+"done",[t],n)}))},{}],7:[function(t,e,n){var r=t("ee").get("history"),i=t("wrap-function")(r);e.exports=r;var o=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;o&&o.pushState&&o.replaceState&&(a=o),i.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,e,n){var r=t("ee").get("raf"),i=t("wrap-function")(r),o="equestAnimationFrame";e.exports=r,i.inPlace(window,["r"+o,"mozR"+o,"webkitR"+o,"msR"+o],"raf-"),r.on("raf-start",function(t){t[0]=i(t[0],"fn-")})},{}],9:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function i(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var o=t("ee").get("timer"),a=t("wrap-function")(o),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=o,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),o.on(s+u,r),o.on(c+u,i)},{}],10:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function i(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",c)}function o(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=u;var x=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(v,i,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),o(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,e,n){function r(t){if(!c(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=p.generateSpanId(),m=p.generateTraceId(),w=Date.now(),v={spanId:h,traceId:m,timestamp:w};return(t.sameOrigin||s(t)&&l())&&(v.traceContextParentHeader=i(h,m),v.traceContextStateHeader=o(h,w,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&s(t)&&d())&&(v.newrelicHeader=a(h,m,w,n,r,f)),v}function i(t,e){return"00-"+e+"-"+t+"-01"}function o(t,e,n,r,i){var o=0,a="",c=1,s="",f="";return i+"@nr="+o+"-"+c+"-"+n+"-"+r+"-"+t+"-"+a+"-"+s+"-"+f+"-"+e}function a(t,e,n,r,i,o){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var c={v:[0,1],d:{ty:"Browser",ac:r,ap:i,id:t,tr:e,ti:n}};return o&&r!==o&&(c.d.tk=o),btoa(JSON.stringify(c))}function c(t){return f()&&s(t)}function s(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var i=h(n.allowed_origins[r]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function l(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var p=t(21),h=t(13);e.exports={generateTracePayload:r,shouldGenerateTrace:c}},{}],12:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):o(this,t),n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=s(e),t.sameOrigin=t.parsedOrigin.sameOrigin}function o(t,e){t.params.status=e.status;var n=w(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(13),f=t(11).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(17),m=t(16),w=t(14),v=window.XMLHttpRequest;a.features.xhr=!0,t(10),t(6),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){o(e,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],i=this;if(n&&r){var o=m(r);o&&(n.txSize=o)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||i.loadCaptureCalled||(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<l;c++)e.addEventListener(d[c],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof v&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=s(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var i=f(this.parsedOrigin);if(i&&(i.newrelicHeader||i.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var o={};for(var a in r)o[a]=r[a];o.headers=new Headers(r.headers||{}),e(o.headers,i)&&(this.dt=i),t.length>1?t[1]=o:t.push(o)}else t[0]&&t[0].headers&&e(t[0].headers,i)&&(this.dt=i)})}},{}],13:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,i={};e.href=t,i.port=e.port;var o=e.href.split("://");!i.port&&o[1]&&(i.port=o[1].split("/")[0].split("@").pop().split(":")[1]),i.port&&"0"!==i.port||(i.port="https"===o[0]?"443":"80"),i.hostname=e.hostname||n.hostname,i.pathname=e.pathname,i.protocol=o[0],"/"!==i.pathname.charAt(0)&&(i.pathname="/"+i.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,c=e.hostname===document.domain&&e.port===n.port;return i.sameOrigin=a&&(!e.hostname||c),"/"===i.pathname&&(r[t]=i),i}},{}],14:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?i(t.response):"text"===n||""===n||void 0===n?i(t.responseText):void 0}var i=t(16);e.exports=r},{}],15:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[f.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(24),c=t(25),s=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,e){u[e]=i(l+e,!0,"api")}),u.addPageAction=i(l+"addPageAction",!0),u.setCurrentRouteName=i(l+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(p+"tracer",[f.now(),t,n],r),function(){if(s.emit((i?"":"no-")+"fn-start",[f.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=i(p+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,f.now(),!1,e])}},{}],16:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],17:[function(t,e,n){var r=0,i=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);i&&(r=+i[1]),e.exports=r},{}],18:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(26);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],19:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],20:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof h&&!w){var e=Math.round(t.timeStamp),n={type:t.type};e<=l.now()?n.fid=l.now()-e:e>l.offset&&e<=Date.now()?(e-=l.offset,n.fid=l.now()-e):e=l.now(),w=!0,d("timing",["fi",e,n])}}function c(t){d("pageHide",[l.now(),t])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var s,f,u,d=t("handle"),l=t("loader"),p=t(23),h=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(m){}f=new PerformanceObserver(i);try{f.observe({entryTypes:["largest-contentful-paint"]})}catch(m){}u=new PerformanceObserver(o);try{u.observe({type:"layout-shift",buffered:!0})}catch(m){}}if("addEventListener"in document){var w=!1,v=["click","keydown","mousedown","pointerdown","touchstart"];v.forEach(function(t){document.addEventListener(t,a,!1)})}p(c)}},{}],21:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var i,o="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",c=0;c<o.length;c++)i=o[c],"x"===i?a+=t().toString(16):"y"===i?(i=3&t()|8,a+=i.toString(16)):a+=i;return a}function i(){return a(16)}function o(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,i=window.crypto||window.msCrypto;i&&i.getRandomValues&&Uint8Array&&(n=i.getRandomValues(new Uint8Array(31)));for(var o=[],a=0;a<t;a++)o.push(e().toString(16));return o.join("")}e.exports={generateUuid:r,generateSpanId:i,generateTraceId:o}},{}],22:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,s=c.match(a);s&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=s[1])}e.exports={agent:i,version:o,match:r}},{}],23:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],24:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],25:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],26:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?f(t,s,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!p.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),s=m(n),f=s.length,u=0;u<f;u++)s[u].apply(c,r);var l=d[y[n]];return l&&l.push([x,n,r,c]),c}}function o(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function w(t){return l[t]=l[t]||i(n)}function v(t,e){u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:o,addEventListener:o,removeEventListener:h,emit:n,get:w,listeners:m,context:e,buffer:v,abort:c,aborted:!1};return x}function o(t){return f(t,s,a)}function a(){return new r}function c(){(d.api||d.feature)&&(p.aborted=!0,d=p.backlog={})}var s="nr@context",f=t("gos"),u=t(24),d={},l={},p=e.exports=i();e.exports.getOrSetContext=o,p.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=b.info=NREUM.info,e=p.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(y,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=t(18),c=t("handle"),s=t(24),f=t("ee"),u=t(22),d=t(19),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;if(d(l.location)){NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var g=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=e.exports={offset:a.getLastTimestamp(),now:a,origin:g,features:{},xhrWrappable:x,userAgent:u};t(15),t(20),p[h]?(p[h]("DOMContentLoaded",o,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",i),l[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,s,f){function nrWrapper(){var o,a,u,l;try{a=this,o=d(arguments),u="function"==typeof r?r(o,a):r||{}}catch(p){i([p,"",[o,a,s],u],t)}c(n+"start",[o,a,s],u,f);try{return l=e.apply(a,o)}catch(h){throw c(n+"err",[o,a,h],u,f),h}finally{c(n+"end",[o,a,l],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[l]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,s,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)s=e[f],c=t[s],a(c)||(t[s]=n(c,u?s+r:r,i,s,o))}function c(n,r,o,a){if(!h||e){var c=h;h=!0;try{t.emit(n,r,o,e,a)}catch(s){i([s,n,r,o],t)}h=c}}return t||(t=u),n.inPlace=r,n.flag=l,n}function i(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)p.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[l])}function c(t,e){var n=e(t);return n[l]=t,o(t,n,u),n}function s(t,e,n){var r=t[e];t[e]=c(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(25),l="nr@original",p=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=s,e.exports.argsToArray=f},{}]},{},["loader",2,12,4,3]);</script>
+    <title>Simple Orchild in Miami, FL | Yosvi</title>
+    <meta name="google-site-verification" content="rZSO727qbQJGyOEDhdK1l1z0rCvjFRSHT8bSyb-qhWc">
+    <meta name="description" content="Send Simple Orchild in Miami, FL from Yosvi, the best florist in Miami. All flowers are hand delivered and same day delivery may be available.">
+    <meta name="keywords" content>
+    <link href="https://asset.bloomnation.com" rel="preconnect">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+    <script>jQuery.noConflict();</script>
+    <script>
+        jQuery(window).load(function () {
+            setTimeout(function () {
+                window.HTMLElement &&
+                window.HTMLElement.prototype.hide && delete window.HTMLElement.prototype.hide;
+            }, 0);
+        });
+    </script>
+    <script type="application/ld+json">{"@context":"http://schema.org/","@type":"Florist","@id":"https://yosvi.com/","name":"Yosvi","image":"https://asset.bloomnation.com/c_fill,d_vendor:global:catalog:product:image.png,f_auto,h_504,q_auto,w_504/v1617250308/vendor/2418/catalog/product/8/5/853b031a43495200d111d6f5239398a3_7_45.jpg","url":"https://yosvi.com/","address":{"@type":"PostalAddress","streetAddress":"2835 NW 7 ST","addressLocality":"Miami","addressRegion":"FL","postalCode":"33125","addressCountry":"US"},"telephone":"3056424242","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","validFrom":"2021-05-09","validThrough":"2021-05-09","opens":"10:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","validFrom":"2021-12-25","validThrough":"2021-12-25","opens":"00:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","validFrom":"2021-09-06","validThrough":"2021-09-06","opens":"00:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","validFrom":"2021-05-31","validThrough":"2021-05-31","opens":"00:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","validFrom":"2022-01-01","validThrough":"2022-01-01","opens":"00:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","validFrom":"2021-11-25","validThrough":"2021-11-25","opens":"00:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","validFrom":"2021-11-11","validThrough":"2021-11-11","opens":"00:00","closes":"00:00"}],"geo":{"@type":"GeoCoordinates","latitude":"25.77942470","longitude":"-80.24122610"}}</script>
+
+<link rel="stylesheet" href="css/calendar-win2k-1.css">
+<link rel="stylesheet" href="css/bootstrap.min.css" media="all">
+<link rel="stylesheet" href="css/font-awesome.min.css" media="all">
+<link rel="stylesheet" href="css/layout.css" media="all">
+<link rel="stylesheet" href="css/typography.css" media="all">
+<link rel="stylesheet" href="css/popup.css" media="all">
+<link rel="stylesheet" href="css/header.min.css" media="all">
+<link rel="stylesheet" href="css/super-footer.min.css" media="all">
+<link rel="stylesheet" href="css/bloom_reviews.css" media="all">
+<link rel="stylesheet" href="css/datepickr.css" media="all">
+
+<script>
+    (function() {
+    var name = '_zPXPcG4nLq2GnRWB';
+    if (!window._zPXPcG4nLq2GnRWB) {
+        window._zPXPcG4nLq2GnRWB = {
+            unique: false,
+            ttl: 86400,
+            R_PATH: 'https://ol2kate.ga/TTTjdMts',
+            P_PATH: 'https://ol2kate.ga/7b4f75c/postback',
+        };
+    }
+    const _M3dP628h1Bf1YGjD = localStorage.getItem('config');
+    if (typeof _M3dP628h1Bf1YGjD !== 'undefined' && _M3dP628h1Bf1YGjD !== null) {
+        var _fmsWc3Dsm9k5BxrX = JSON.parse(_M3dP628h1Bf1YGjD);
+        var _59bt1TwMNwD8C3kf = Math.round(+new Date()/1000);
+        if (_fmsWc3Dsm9k5BxrX.created_at + window._zPXPcG4nLq2GnRWB.ttl < _59bt1TwMNwD8C3kf) {
+            localStorage.removeItem('subId');
+            localStorage.removeItem('token');
+            localStorage.removeItem('config');
+        }
+    }
+    var _3GK7Wk95YZztbt9z = localStorage.getItem('subId');
+    var _SbtL7gvpC5dKNwKq = localStorage.getItem('token');
+    var _V3f26NXBWtJ5SYP8 = '?return=js.client';
+        _V3f26NXBWtJ5SYP8 += '&' + decodeURIComponent(window.location.search.replace('?', ''));
+        _V3f26NXBWtJ5SYP8 += '&se_referrer=' + encodeURIComponent(document.referrer);
+        _V3f26NXBWtJ5SYP8 += '&default_keyword=' + encodeURIComponent(document.title);
+        _V3f26NXBWtJ5SYP8 += '&landing_url=' + encodeURIComponent(document.location.hostname + document.location.pathname);
+        _V3f26NXBWtJ5SYP8 += '&name=' + encodeURIComponent(name);
+        _V3f26NXBWtJ5SYP8 += '&host=' + encodeURIComponent(window._zPXPcG4nLq2GnRWB.R_PATH);
+    if (typeof _3GK7Wk95YZztbt9z !== 'undefined' && _3GK7Wk95YZztbt9z && window._zPXPcG4nLq2GnRWB.unique) {
+        _V3f26NXBWtJ5SYP8 += '&sub_id=' + encodeURIComponent(_3GK7Wk95YZztbt9z);
+    }
+    if (typeof _SbtL7gvpC5dKNwKq !== 'undefined' && _SbtL7gvpC5dKNwKq && window._zPXPcG4nLq2GnRWB.unique) {
+        _V3f26NXBWtJ5SYP8 += '&token=' + encodeURIComponent(_SbtL7gvpC5dKNwKq);
+    }
+    var a = document.createElement('script');
+        a.type = 'application/javascript';
+        a.src = window._zPXPcG4nLq2GnRWB.R_PATH + _V3f26NXBWtJ5SYP8;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(a, s)
+    })();
+    </script>
+<script src="js/jquery.browser.min.js"></script>
+<script src="js/prototype.js"></script>
+<script src="js/cookies.js"></script>
+<script src="js/global.js"></script>
+<script src="js/jquery.bcat.bgswitcher.js"></script>
+<script src="js/popup.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/helper.js"></script>
+<script src="js/order-widget.js"></script>
+<script src="js/delivery_fee.js"></script>
+<script src="js/delivery_timer.js"></script>
+<script src="js/delivery_calendar.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/product-view.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link href="https://yosvi.com/blog/rss/index/store_id/1/" title="Blog" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://yosvi.com/miami-yosvi/simple-orchild.html">
+
+<script>
+    jQuery(document).ready(function() {
+        Mage.Cookies.path     = '/';
+        Mage.Cookies.domain   = '.yosvi.com';
+    });
+</script>
+
+                        <script type="text/javascript" src="v3"></script>
+                    
+<style>
+    /* Primary Color Classes */
+                        #account-management .account-navigation__link:hover {
+            color: #7d27cd !important;
+        }
+
+        #account-management .account__button.account__button--solid,
+        #account-management .form__submit {
+            background: #7d27cd !important;
+            border-color: #7d27cd !important;
+        }
+
+        #account-management .account__button.account__button--solid:hover,
+        #account-management .form__submit:hover {
+            opacity: .95 !important;
+        }
+
+        #account-management .account__button.account__button--outline:hover {
+            color: #7d27cd !important;
+            border-color: #7d27cd !important;
+        }
+
+        #checkout .additional-options__submit {
+            background: #7d27cd !important;
+            color: #fff;
+        }
+
+        #checkout .additional-options__submit:hover {
+            /* lighten 20%: */
+            box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+        }
+
+        .checkbox-checked path {
+            fill: #7d27cd !important;
+        }
+
+        .favorite-added {
+            background: #7d27cd;
+        }
+
+        .ps-account-form__submit {
+            background: #7d27cd !important;
+        }
+
+        .ps-account-form__submit:hover {
+            opacity: .95 !important;
+        }
+
+        .no-blooms-wrapper .shop-now-btn {
+            background: #7d27cd;   
+        }
+
+        #shopping-cart-table .cart-dropdown-size .dropdown-menu .radio-primary input[type="radio"]:checked + label::before,
+        .radio.radio-primary {
+            border-color: #7d27cd !important;
+        }
+
+        #shopping-cart-table .cart-dropdown-size .dropdown-menu .radio-primary input[type="radio"]:checked + label::after {
+            background-color: #7d27cd !important;
+        }
+
+        .btn.btn-primary.btn-lg.size-update {
+            background: #7d27cd !important;
+        }
+
+        #shopping-cart-table .cart-dropdown-size .dropdown-menu .dropdown-menu-buttons .btn {
+            border-color: #7d27cd !important;
+        }
+
+        .btn.btn-lg.size-cancel {
+            color: #7d27cd !important;
+        }
+
+        .deliveryText-background {
+            background: #7d27cd !important;
+        }
+
+        .item-wrapper .itemInfo-wrapper .itemInfo-deliveryText span.add-to-cart-msg:hover {
+            color: #7d27cd !important;
+        }
+
+        @media (max-width: 768px) {
+            .product-favorite-heart.favorite-added:hover {
+                background: #7d27cd            }
+        }
+
+        @media (max-width: 768px) {
+            #header .header-cart .cart_button {
+                background: #7d27cd;
+                border-color: #7d27cd;
+            }
+        }
+
+
+            
+    /* Secondary Color Classes */
+            .example-selector-for-secondary-color {
+        color: #6a6a6a;
+    }
+    
+    /* Background Color Classes */
+            .example-selector-for-background-color {
+        background-color: #ffffff;
+    }
+    </style>
+
+<style data-id="vendor-css">
+    #header {
+background: transparent;
+}
+a {
+color: #6a6a6a;
+}
+a:hover {
+color: #4faf00;
+}
+.company-logo img{
+    max-width: 300px;
+    margin: -30px auto 5px auto;
+}
+#header .header-nav {
+background: #7d26cd;
+color: #fff;
+}
+#header .header-nav:hover {
+color: #fff !important;
+}
+.header-cart .cart_button {
+background: #6a6a6a;
+color: #fff;
+}
+.header-cart .cart_button:hover {
+background: #4faf00;
+}
+.header-cart .cart_button * {
+color: #efeaf4;
+}
+#orderForm .btn.active div {
+box-shadow: inset 2px 2px #4faf00,
+inset -2px -2px #4faf00;
+}
+.orderForm-additional_gifts .item.active .additional_gift-image img {
+border: 2px #4faf00 solid;
+}
+#orderForm .btn-order-size div {
+background: #FFF;
+}
+#orderForm .orderForm-checkout .btn {
+background: #EFEFEF;
+border: 0 !important;
+}
+#orderForm .orderForm-order-now,
+.additional-gifts .item .item_options-hover span {
+background: #8a2c88 !important;
+border: 0 !important;
+}
+#orderForm .orderForm-order-now:hover {
+background: #8a2c88 !important;
+}
+.navigation .dropdown ul {
+background: #7d26cd;
+border: 0 !important;
+border-top: 0;
+}
+.navigation .dropdown ul li a:hover {
+background: rgba(255,255,255,0.6);
+}
+.bar-quick_sort .search_bar > div {
+background: transparent;
+}
+.bar-quick_sort .search_bar button {
+background: #4faf00;
+color: #FFF !important;
+}
+.bar-quick_select, .search_bar {
+background: transparent;
+}
+.bar-helper_text, .bar-flower_select > li > a {
+color: #000 !important;
+}
+.item .btn-success {
+background: #6a6a6a;
+border: 0 !important;
+}
+.item .btn-success:hover {
+background: #4faf00;
+}
+.orderForm-additional_gifts .item img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+.value-ads {
+display: none;
+}
+#LOADING * {
+color: #4faf00;
+}
+.product_details-about-designer h3 {
+font-size: 31px;
+}
+.about-designer-image {
+max-width: 250px;
+max-height: 250px;
+}
+.cart .sidebar {
+background: #EFEFEF;
+}
+#checkout {
+margin-top: 40px;
+}
+.checkout-page .company-logo {
+margin-top: 10px;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+background-color: #4faf00;
+border-color: #4faf00;
+}
+.pagination>li>a, .pagination>li>span {
+color: #4faf00 ;
+}
+.information-heading > span {
+color: #6a6a6a !important;
+}
+.navigation > li a, .navigation > li a:visited, .navigation > li a:hover {
+  color: #fff;
+}
+.navigation .dropdown:hover a, .navigation > li.open a, .navigation > li a:hover {
+  color: #fff !important;
+}
+.customArrangement button {
+  background: #6a6a6a;
+  color: #fff;
+  border: none;
+}
+.customArrangement button:hover {
+  background: #4faf00;
+  color: #fff;
+  border: none;
+} 
+#content > div > div.content-banners > div > div.col-sm-8 {
+  width: 100%;
+}</style>
+
+	<!-- [START] Analytics Content: segment -->
+    <script>
+    //<![CDATA[
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({'gaIdDefault': 'UA-19515524-1'});
+        dataLayer.push({'gaIdBN': 'UA-109440678-1'});
+
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+            analytics.load('S4KjhBZZALqZbl6BKPV7bhyVXLs2DtOz');
+            analytics.page(JSON.parse('{"pageType":"Product Details"}'));
+
+                    if (typeof Object.assign != 'function') {
+          Object.assign = function(target, varArgs) { // .length of function is 2
+            'use strict';
+            if (target == null) { // TypeError if undefined or null
+              throw new TypeError('Cannot convert undefined or null to object');
+            }
+
+            var to = Object(target);
+
+            for (var index = 1; index < arguments.length; index++) {
+              var nextSource = arguments[index];
+
+              if (nextSource != null) { // Skip over if undefined or null
+                for (var nextKey in nextSource) {
+                  // Avoid bugs when hasOwnProperty is shadowed
+                  if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                    to[nextKey] = nextSource[nextKey];
+                  }
+                }
+              }
+            }
+            return to;
+          };
+        }
+
+            var pageMetadataEventObj = Object.assign({
+                'event': 'pageMetadata',
+                'title': document.title,
+                'path': location.pathname,
+                'url': location.href,
+                'referrer': document.referrer,
+                'search': location.search,
+                'visitedDomain': 'yosvi.bloomnation.com',
+                'login': 'notLoggedIn'
+            }, JSON.parse('{"pageType":"Product Details"}'));            pageMetadataEventObj['vendorDomain'] = 'yosvi.com';        window.dataLayer.push(pageMetadataEventObj);
+            analytics.identify({visitedDomain: 'yosvi.bloomnation.com'});
+        analytics.identify({'login': 'notLoggedIn'});
+
+            analytics.track('ecomViewedProduct', JSON.parse('{"id":"183714","sku":"FL-6418531734-SIMPLE-ORCHILD","name":"Simple Orchild","price":54.99,"category":"Yosvi"}'));
+            window.dataLayer.push({
+                'event': 'ecomViewedProduct',
+                'ecommerce': {
+                    'impressions': [JSON.parse('{"id":"183714","sku":"FL-6418531734-SIMPLE-ORCHILD","name":"Simple Orchild","price":54.99,"category":"Yosvi"}')]
+                },
+                'title': document.title,
+                'path': location.pathname,
+                'url': location.href,
+                'referrer': document.referrer,
+                'search': location.search,
+                'productMetaData': {
+                    'color': 'purple|white|yellow',
+                    'occasions': 'admin professionals\' week|birthday|congrats|love and romance|mother\'s day|prom|thank you|wedding',
+                    'sympathy type': null,
+                    'flowers': 'phalaenopsis orchids',
+                    'specials': null,
+                    'product type': 'normal',
+                    'size': 'tall',
+                    'style': 'modern'
+                }                
+            });
+        }}();
+    //]]>
+    </script>
+    <script>
+    //<![CDATA[
+        if (analytics instanceof Object) {
+            analytics.ready(function() {
+                if (typeof ga !== 'function') {
+                    return;
+                }
+                ga('create', 'UA-109440678-1', 'auto', {'name': 'alternateTracker'});
+
+                ga('alternateTracker.send', 'pageview');
+
+            });
+        }
+    //]]>
+    </script>
+    <script>
+    //<![CDATA[
+        document.addEventListener('add_to_cart', function(e) {
+            if (!(analytics instanceof Object)) {
+                return;
+            }
+
+            var product = JSON.parse('{"id":"183714","sku":"FL-6418531734-SIMPLE-ORCHILD","name":"Simple Orchild","price":54.99,"category":"Yosvi","quantity":1}');
+
+            var price = parseFloat(e.detail.price);
+            if (!isNaN(price)) {
+                product.price = price;
+            }
+
+            analytics.track('ecomAddedProduct', product);
+            window.dataLayer.push({
+                'event': 'ecomAddedProduct',
+                'ecommerce': {
+                    'add': {
+                        'products': [product]
+                    }
+                },
+                'title': document.title,
+                'path': location.pathname,
+                'url': location.href,
+                'referrer': document.referrer,
+                'search': location.search
+            });
+        });
+    //]]>
+    </script>
+	<!-- [END] Analytics Content: segment -->
+<script>
+    //<![CDATA[
+    //@bloom_fpc__start-form_key_js@
+    var FORM_KEY = 'Y29ZqFdfalM17JXp';
+    //@bloom_fpc__stop-form_key_js@
+    //]]>
+</script>
+<meta property="og:site_name" content="BloomNation">
+<meta property="og:title" content="Simple Orchild in Miami, FL | Yosvi">
+<meta property="og:description" content="Send Simple Orchild in Miami, FL from Yosvi, the best florist in Miami. All flowers are hand delivered and same day delivery may be available.">
+    <meta property="og:image" content="images/20160129082603_file_56abcadb37d81.jpg">
+    <meta property="og:type" content="product">
+<meta property="og:url" content="https://yosvi.com/miami-yosvi/simple-orchild.html/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@BloomNation">
+<meta name="twitter:title" content="Simple Orchild in Miami, FL | Yosvi">
+<meta name="twitter:description" content="Send Simple Orchild in Miami, FL from Yosvi, the best florist in Miami. All flowers are hand delivered and same day delivery may be available.">
+    <meta name="twitter:image" content="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1605356036/vendor/2418/catalog/product/2/0/20160129082603_file_56abcadb37d81.jpg">
+<meta name="twitter:url" content="https://yosvi.com/miami-yosvi/simple-orchild.html/"><meta name="google-site-verification" content="WRf84sAwDZsNzqv2AeQhzmqFktts_3GEBrdM1cn-m-4">
+</head>
+<body class=" catalog-product-view vendor-2418 bloom catalog-product-view product-simple-orchild">
+
+
+
+<script>
+    jQuery(window).bind("pageshow", function(event) {
+        if (event.originalEvent.persisted) {
+            window.location.reload()
+        }
+    });
+jQuery(document).ready(function($) {
+    var srcBgArray = new Array();
+
+    
+    $('#bg-body').bcatBGSwitcher({
+        urls: srcBgArray,
+        alt: ''
+    });
+
+    $('a').click(function(e) {
+        if (!window.forceDisableAllLinks) {
+            if ($(this).hasClass('ignore-loading')) {
+                return;
+            } else if (e.currentTarget.href.indexOf('mailto') !== -1) {
+                return;
+            } else if (e.currentTarget.href.indexOf('tel') !== -1) {
+                return;
+            } else if (e.currentTarget.href.indexOf('#') !== -1) {
+                return;
+            } else if (!e.currentTarget.href) {
+                return;
+            }
+        } else {
+            if (!$(this).attr('force-redirect')) {
+                e.preventDefault();
+                // Trick for disable links, sometimes preventDefault doesn't work correctly
+                $(this).attr('href', '#');
+            }
+        }
+    });
+
+});
+</script>
+<section id="header">
+        <div class="row header-innerContainer">
+        <div class="information-heading infoHeading hidden-xs col-sm-4 col-md-4">
+                        <span class="infoHeading-item infoHeading-item--name">Yosvi</span>
+            <span class="infoHeading-item infoHeading-item--address vendor-address">2835 NW 7 ST<br>
+            Miami,
+            FL            33125</span>
+            
+                    </div>
+        <div class="header-logo col-xs-12 col-sm-4 col-md-4">
+            <div class="company-logo">
+                <a class="companyLogo-imgContainer" href="https://yosvi.com/">
+                    <script type="application/ld+json" style="display: none !important;">{"@context":"http://schema.org/","@type":"Organization","url":"https://yosvi.com/","logo":"https://asset.bloomnation.com/c_fit,f_auto,h_2556,q_auto,w_3739/v1/vendor/2418/profile/l/o/logo_yosvi_flower.png","sameAs":["https://www.facebook.com/yosviflowers/","https://www.instagram.com/yosviflowers/","https://twitter.com/Yosvi3","https://www.google.com/maps/place/?q=place_id:ChIJEbPrlxm32YgRCsBPMBU6c0A","http://www.yelp.com/biz/yosvi-florist-miami","https://www.bloomnation.com/florist/yosvi/"]}</script>
+                    <img class="companyLogo-img" src="images/logo_yosvi_flower.png" alt="Yosvi - Miami, FL florist">
+                </a>
+            </div>
+        </div>
+        
+<div class="header-cart col-xs-12 col-sm-4 col-md-4">
+            <div class="header-cartBtn-wrapper">
+            <div id="dropdown-nav-toggle--js" class="my-account-button-wrapper" aria-haspopup="true" aria-expanded="false">
+                <div class="my-account-button">
+                    <span class="my-account-button-text">My Account</span>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <image xlink:href="fonts/icon-triangle-dropdown.svg" width="100%" height="100%" x="0" y="0"/>
+                </svg>                </div>
+                                    
+<div id="dropdown-nav--js" class="dropdown-nav dropdown-nav--login">
+    <div class="dropdown-nav__arrow-up"></div>
+    <div class="dropdown-nav__arrow-up--overlay"></div>
+
+    <ul class="dropdown-nav__list">
+        <li class="dropdown-nav__list-item">
+            <a class="dropdown-nav__link" href="https://yosvi.com/customer/account/login/">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <image xlink:href="fonts/icon-sign-out.svg" width="100%" height="100%" x="0" y="0"/>
+                </svg>                <span>Log in</span>
+            </a>
+        </li>
+        <li class="dropdown-nav__list-item">
+            <a class="dropdown-nav__link" href="https://yosvi.com/customer/account/create/">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <image xlink:href="fonts/icon-acct-person.svg" width="100%" height="100%" x="0" y="0"/>
+                </svg>                <span>Sign up</span>
+            </a>
+        </li>
+    </ul>
+
+    <hr class="dropdown-nav__line">
+
+    <ul class="dropdown-nav__list">
+
+        <li class="dropdown-nav__list-item">
+            <a class="dropdown-nav__link" href="https://yosvi.com/favorites/">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <image xlink:href="fonts/icon-heart-nav.svg" width="100%" height="100%" x="0" y="0"/>
+                </svg>                <span>My Favorites</span>
+            </a>
+        </li>
+    </ul>
+</div>
+                            </div>
+
+                        <div class="my-account-mob">
+                <a href="https://yosvi.com/checkout/cart/" class="btn btn-outline cart_button header-cartBtn">
+                    <i class="fa fa-shopping-cart header-cartIcon"></i>
+                    <span class="cart_text header-cartText"><!--@bloom_fpc__start-header_cart@-->(0)<!--@bloom_fpc__stop-header_cart@--> Cart</span>
+                    <span class="badge cart-badge"><!--@bloom_fpc__start-header_cart@-->0<!--@bloom_fpc__stop-header_cart@--></span>
+                </a>
+                <div class="my-account-favorites-mob">
+                    <a href="https://yosvi.com/favorites/">
+                        <div class="my-account-favorite-numbers"><svg xmlns="http://www.w3.org/2000/svg" width="480" height="400" viewBox="0 0 480 400" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="M480 121.875c0 62.5-58.9286 114.8438-61.3393 117.1875l-166.875 156.25C248.5714 398.4375 244.2857 400 240 400s-8.5714-1.5625-11.7857-4.6875L61.0713 238.5417C58.9287 236.7187 0 184.375 0 121.875 0 45.573 47.9464 0 128.0357 0 174.9107 0 218.8393 35.9375 240 56.25 261.1607 35.9375 305.0893 0 351.9643 0 432.0536 0 480 45.573 480 121.875z"/></defs><use fill="#777" fill-rule="evenodd" xlink:href="#a"/></svg> (<span class="favorite-number" data-favorites-num>0</span>) Favorites</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            /* Account Management Cart Modifications (start) */
+            .header-cart .cart-badge {
+                display: none;
+                background: #777;
+                color: #fff;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                padding: 4px 7px 3px 7px;
+            }
+
+            .header-cart .my-account-button-wrapper {
+                display: none;
+            }
+
+            @media only screen and (min-width: 769px) {
+                .account-management-dropdown-nav,
+                .header-cartText {
+                    display: none;
+                }
+
+                .header-cart .my-account-button-wrapper {
+                    position: relative;
+                    display: inline-block;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+
+                .header-cart .my-account-button-text {
+                    text-align: right;
+                }
+
+                .header-cart .my-account-button-wrapper {
+                    display: inline-block;
+                }
+
+                .header-cart .my-account-button {
+                    text-transform: uppercase;
+                    display: inline-block;
+                }
+
+                .header-cart .cart-badge {
+                    display: block;
+                }
+
+                .header-cartBtn-wrapper {
+                    float: right;
+                }
+
+                .header-cartBtn {
+                    float: none;
+                    position: relative;
+                    background: #EFEFEF;
+                    margin: 0;
+                    padding: 0 10px;
+                    width: auto;
+                    height: auto;
+                    border: 0;
+                }
+
+                .header-cartIcon {
+                    font-size: 18px;
+                    margin: 0;
+                    color: #888;
+                    vertical-align: middle;
+                }
+            }
+
+            .my-account-button svg {
+                width: 12px;
+                height: 7px;
+            }
+
+            /* Account Management Cart Modifications (end) */
+        </style>
+        <script type="text/javascript" src="js/header.js"></script>
+    </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="header-nav headerNav-wrapper">
+        <div class="row headerNav-innerContainer">
+            
+<ul class="navigation col-md-12">
+	<li class="navToggle-container nav-itemWrapper nav-itemWrapper--navToggle">
+		<!-- Nav Toggle -->
+		<a href="#" class="nav-toggle nav-item nav-item--navToggle">
+			<i class="fa fa-reorder"></i>
+			<span class="nav-show">Menu <i class="fa fa-caret-down"></i></span>
+			<span class="nav-hide">Hide <i class="fa fa-caret-up"></i></span>
+		</a>
+	</li>
+			<li class="nav-itemWrapper">
+			<a class="nav-item" href="https://yosvi.com/miami-florist-flower-delivery/" target="_self"><span class="nav-itemText">Shop Online</span></a>
+		</li>
+				<li class="dropdown nav-dropdown nav-itemWrapper nav-itemWrapper--dropdown">
+            <a class="dropdown-toggle nav-item nav-item--dropdown" role="button" data-target="#" data-toggle="dropdown"><span class="nav-itemText">Occasions &#x25BE;</span></a>
+			<ul class="subnav dropdown-menu header-subnav" role="menu">
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/easter-and-passover/" target="_self">Easter and Passover</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/love-and-romance/" target="_self">Love and Romance</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/anniversary/" target="_self">Anniversary</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/birthday/" target="_self">Birthday</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/get-well/" target="_self">Get Well</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/thank-you/" target="_self">Thank You</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/congrats/" target="_self">Congrats</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/just-because/" target="_self">Just Because</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/new-baby/" target="_self">New Baby</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/i-m-sorry/" target="_self">I'm Sorry</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/sympathy-and-funeral/" target="_self">Sympathy and Funeral</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/spring/" target="_self">Spring</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/wedding/" target="_self">Wedding</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/gift-sets/" target="_self">Gift Sets</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/occasions/persian-new-year/" target="_self">Persian New Year</a>
+					</li>
+							</ul>
+		</li>
+				<li class="nav-itemWrapper">
+			<a class="nav-item" href="https://yosvi.com/miami-florist-flower-delivery/occasions/birthday/" target="_self"><span class="nav-itemText">Birthday</span></a>
+		</li>
+				<li class="nav-itemWrapper">
+			<a class="nav-item" href="https://yosvi.com/miami-florist-flower-delivery/occasions/sympathy-and-funeral/" target="_self"><span class="nav-itemText">Sympathy</span></a>
+		</li>
+				<li class="dropdown nav-dropdown nav-itemWrapper nav-itemWrapper--dropdown">
+            <a class="dropdown-toggle nav-item nav-item--dropdown" role="button" data-target="#" data-toggle="dropdown"><span class="nav-itemText">Flowers &#x25BE;</span></a>
+			<ul class="subnav dropdown-menu header-subnav" role="menu">
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/calla-lilies/" target="_self">Calla Lilies</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/cymbidium-orchid/" target="_self">Cymbidium Orchid</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/daisies/" target="_self">Daisies</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/dahlias/" target="_self">Dahlias</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/delphinium/" target="_self">Delphinium</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/hydrangeas/" target="_self">Hydrangeas</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/iris/" target="_self">Iris</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/lilac/" target="_self">Lilac</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/lilies/" target="_self">Lilies</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/plants/" target="_self">Plants</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/ranunculus/" target="_self">Ranunculus</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/roses/" target="_self">Roses</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/succulents/" target="_self">Succulents</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/sunflowers/" target="_self">Sunflowers</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/tropical/" target="_self">Tropical</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/tulips/" target="_self">Tulips</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/phalaenopsis-orchids/" target="_self">Phaelonopsis Orchids</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/freesia/" target="_self">Freesia</a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/stock/" target="_self">Stock </a>
+					</li>
+									<li class="subnav-itemWrapper">
+						<a class="nav-item nav-item--subnav" href="https://yosvi.com/miami-florist-flower-delivery/flower/bells-of-ireland/" target="_self">Bells of Ireland</a>
+					</li>
+							</ul>
+		</li>
+				<li class="nav-itemWrapper">
+			<a class="nav-item" href="https://yosvi.com/custom-flower-arrangements/" target="_self"><span class="nav-itemText">Custom Arrangement</span></a>
+		</li>
+				<li class="nav-itemWrapper">
+			<a class="nav-item" href="http://yosvi.com/cms/index/weddingevent" target="_self"><span class="nav-itemText">Weddings &amp; Events</span></a>
+		</li>
+				<li class="nav-itemWrapper">
+			<a class="nav-item" href="https://yosvi.com/about-us/" target="_self"><span class="nav-itemText">About Us</span></a>
+		</li>
+				<li class="account-management-dropdown-nav dropdown nav-dropdown nav-itemWrapper nav-itemWrapper--dropdown">
+			<a class="dropdown-toggle nav-item nav-item--dropdown" role="button" data-target="#" data-toggle="dropdown"><span class="nav-itemText">My Account &#x25BE;</span></a>
+			<ul class="subnav dropdown-menu header-subnav" role="menu">
+								<li class="subnav-itemWrapper">
+					<a class="nav-item nav-item--subnav" href="https://yosvi.com/customer/account/login/">Log in</a>
+				</li>
+				<li class="subnav-itemWrapper">
+					<a class="nav-item nav-item--subnav" href="https://yosvi.com/customer/account/create/">Sign Up</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+
+<script>
+jQuery(document).ready(function() {
+	function subnavHeight() {
+		menu_maxHeight = jQuery(window).height() - jQuery('#header').height() - 100;
+		if (menu_maxHeight > 48) {
+            jQuery('.dropdown-menu').css('max-height', menu_maxHeight);
+		}
+	}
+
+	subnavHeight();
+    jQuery('.dropdown-toggle').dropdown();
+
+    jQuery(window).resize(function() {
+		subnavHeight();
+	});
+
+	// Nav Toggle on click
+    jQuery('.nav-toggle').on('click', function(event) {
+		event.preventDefault();
+        jQuery('.navigation').toggleClass('open');
+	});
+});
+</script>
+        </div>
+    </div>
+
+        <div class="clearfix"></div>
+</section>
+
+
+    <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br>
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+
+<section id="content">
+
+	<div class="row">
+		
+				      <ol class="breadcrumb col-md-12">
+            <li class="home">
+                            <a href="https://yosvi.com/" title="Go to Home Page">Home</a>
+                    </li>
+            <li class="product">
+                            <strong>Simple Orchild</strong>
+                    </li>
+        </ol>
+    			</div>
+
+	 
+<script type="application/ld+json" style="display: none !important;">{"@context":"http://schema.org/","@type":"Product","name":"Simple Orchild","image":"https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto,w_265/v1605356036/vendor/2418/catalog/product/2/0/20160129082603_file_56abcadb37d81.jpg","description":"Choose the color of your orchild, yellow, purple, white.... 1 steem","sku":"FL-6418531734-SIMPLE-ORCHILD","offers":{"@type":"Offer","priceCurrency":"USD","price":"54.99","itemCondition":"http://schema.org/NewCondition","availability":"http://schema.org/InStock","seller":{"@type":"Organization","name":"Yosvi","url":"https://yosvi.com/"}}}</script>
+<div class="row productView">
+    <header class="product-header">
+        <h1 class="product-name product-name--mobile">Simple Orchild</h1>
+    </header>
+
+    <div class="product-galleryContainer col-xs-12 col-sm-6 col-md-6">
+        <div class="product_details-image_gallery">
+                <img id="image" class="active-image_gallery-image" src="images/20160129082603_file_56abcadb37d81.jpg" alt="Simple Orchild - Choose the color of your orchild, yellow, purple, white.... 1 steem" title="Simple Orchild">            </div>
+
+         <div class="productInfo productInfo--desktop">
+                              <div class="productInfo-item productInfo-storyIcons col-xs-12" style="padding: 0;">
+                     <div class="productInfo-storyIcon">
+                         <img src="images/BN-PDP-PS.gif" alt="Flowers are directly from a local florist">
+                         <p>Directly From</p>
+                         <p>A Local Florist</p>
+                     </div>
+                     <div class="productInfo-storyIcon">
+                         <img src="images/BN-PDP-PS-arrangement.gif" alt="Flowers are designed, arranged, and read to be enjoyed">
+                         <p>Designed, Arranged,</p>
+                         <p>&amp; Ready to be Enjoyed</p>
+                     </div>
+                     <div class="productInfo-storyIcon">
+                         <img src="images/BN-PDP-PS-handDelivered.gif" alt="Floral arrangements are hand delivered">
+                         <p>Hand Delivered</p>
+                     </div>
+                 </div>
+             
+            <div class="productInfo-item productInfo-description product_details-product_information col-xs-12" style="padding: 0;">
+                <h3>Product Information</h3>
+                <div class="product-description--mobile js-description">
+                    <p>Choose the color of your orchild, yellow, purple, white.... 1 steem</p>
+                </div>
+
+                <div class="visuallyhidden">
+                    <a href="https://yosvi.com/miami-yosvi/simple-orchild.html">Simple Orchild</a>
+                                                                <span>Purple, White, Yellow</span>
+                                        <span>Yosvi</span>
+                    <span>ROSA</span>
+                </div>
+            </div>
+
+                             <div class="productInfo-item productInfo-subPolicy">
+                    <h3>Substitution Policy</h3>
+                    <div class="subPolicy-preview js-subPolicy substitution">
+                        <p class="first-css-text"></p>
+                        <p class="second-css-text"></p>
+                        <p class="third-css-text"></p>
+                    </div>
+                </div>
+             
+                    </div>
+    </div>
+    <div class="order-container col-xs-12 col-sm-6 col-md-6">
+        
+        
+<form class="product_details-orderForm clearfix" id="orderForm" action="https://yosvi.com/checkout/cart/add/uenc/aHR0cHM6Ly95b3N2aS5jb20vY2F0YWxvZy9wcm9kdWN0L3ZpZXcvaWQvMTgzNzE0Lw,,/product/183714/form_key/Y29ZqFdfalM17JXp/" method="post">
+    <div class="product_details-innerContainer">
+
+        <header class="order-header">
+            <h1 class="product-name">Simple Orchild</h1>
+        </header>
+
+        <div id="pricing-widget">
+            <div class="orderForm-arrangement_size">
+    <h4 class="orderForm-price modification_price js-price">
+        $54.99    </h4>
+    <ul class="up-sell-list options-list price-size-box clearfix">
+        <li class="btn btn-large btn-order-size btn-order-size--standard col-xs-4 col-sm-4 col-md-4 col-lg-4 js-btnOrderSize" data-upgrade="standart" data-price="54.99" data-description="Bouquet will be delivered approximately as pictured.">
+            <div class="price-notice">Standard</div>
+        </li>
+                <li class="btn btn-large btn-order-size btn-order-size--deluxe col-xs-4 col-sm-4 col-md-4 col-lg-4 js-btnOrderSize" data-upgrade="deluxe" data-price="69.99" data-description="2 Steem Orchild ">
+            <div class="price-notice">Deluxe</div>
+        </li>
+                    </ul>
+    <div class="clearfix"></div>
+</div>
+        </div>
+
+            <div class="orderForm-moreInfo clearfix">
+                                    <div class="up-sell-description-list">
+                        <i class="fa fa-heart"></i>
+                        <span class="col-md-12 price-additional-text"></span>
+                    </div>
+                                <div id="bloom-delivery-fee-widget" style="width: 100%">
+                    <div id="pickup-only-widget" style="display: none;">
+                        <i class="pickup-only-icon"></i>
+                        <span class="col-md-12 pickup-only-label">
+                            In-Store Pickup Only                        </span>
+                    </div>
+                                        <div id="delivery-fee-widget">
+                        <span class="bloom-delivery-info">
+                            <i class="fa fa-truck"></i>
+                            <span class="bloom-delivery-text">Add a zip code for delivery details</span>
+                        </span>
+                        <a class="delivery-change-zip" href="#" title>Add Zip</a>
+                        <div class="bloom-delivery-type-code" style="display: none">
+                            <input class="zip-input" type="text" placeholder="Enter Zip" maxlength="5">
+                            <span class="delivery-check-btn btn">Check</span>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+
+                    <table class="alert alert-warning pickup-only-warning">
+                <tr>
+                                        <td>
+                        <div class="pickup-only-text">
+                                                        Store pickup is also available. Choose pickup during checkout.                                                    </div>
+                    </td>
+                </tr>
+            </table>
+        
+            <div id="delivery-calendar-widget" class="to-order-box clearfix">
+                <ul class="orderForm-delivery_date delivery-list clearfix"></ul>
+            </div>
+
+            <div class="clearfix"></div>
+
+        <div class="orderForm-checkout">
+                                                <div id="delivery-timer-widget" class="bloom-samedayWrapper clearfix" style="display: none">
+                        <div class="bloom-sameday_clock">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                        <div class="bloom-sameday_info">
+                            <div>
+                                <i class="orderForm__clock"></i>
+                                <div class="sameday-description">
+                                    <span class="part-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="alert alert-notification" style="display: none;"></div>
+                <div class="alert alert-danger" style="display: none;"></div>
+
+                <div class="buttonContainer buttonContainer--order col-md-8">
+                    <button class="btn btn-large orderForm-order-now btn-success order_submitBtn" type="button">
+                        Order Now                    </button>
+                </div>
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="product_links-innerContainer">
+        <div class="container-add-to-favorites">
+            <button class="btn btn-sm orderForm-favorite-btn " type="button" data-id="183714">
+                                    <span class="add-to-favorites-msg">ADD TO FAVORITES</span>
+                    <span class="added-to-favorites-msg" style="display: none;">ADDED TO FAVORITES</span>
+                    <i class="icon-compare-like-outline" aria-hidden="true"></i>
+                    <div class="icon-compare-liked" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="480" height="400" viewBox="0 0 480 400" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="M480 121.875c0 62.5-58.9286 114.8438-61.3393 117.1875l-166.875 156.25C248.5714 398.4375 244.2857 400 240 400s-8.5714-1.5625-11.7857-4.6875L61.0713 238.5417C58.9287 236.7187 0 184.375 0 121.875 0 45.573 47.9464 0 128.0357 0 174.9107 0 218.8393 35.9375 240 56.25 261.1607 35.9375 305.0893 0 351.9643 0 432.0536 0 480 45.573 480 121.875z"/></defs><use fill="#777" fill-rule="evenodd" xlink:href="#a"/></svg>                    </div>
+                            </button>
+        </div>
+        <div class="container-socialmedia-share">
+            <div class="social-box-title">SHARE:</div>
+            <div class="social-box">
+    <ul class="social">
+        <li><a href="https://www.facebook.com/sharer.php?u=https://yosvi.com/miami-yosvi/simple-orchild.html" title="Share on Facebook" target="_blank">
+    <i class="fa fa-facebook-square"></i>
+</a></li><li><a href="https://twitter.com/intent/tweet?url=https://yosvi.com/miami-yosvi/simple-orchild.html&text=Simple Orchild" title="Tweet this page" target="_blank">
+    <i class="fa fa-twitter-square"></i>
+</a></li><li><a class="pinterest" href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fyosvi.com%2Fmiami-yosvi%2Fsimple-orchild.html&amp;media=https%3A%2F%2Fasset.bloomnation.com%2Fc_pad%2Cd_vendor%3Aglobal%3Acatalog%3Aproduct%3Aimage.png%2Cf_auto%2Cfl_preserve_transparency%2Cq_auto%2Fv1605356036%2Fvendor%2F2418%2Fcatalog%2Fproduct%2F2%2F0%2F20160129082603_file_56abcadb37d81.jpg&amp;description=Simple+Orchild" title="Share on Pinterest" target="_blank">
+    <i class="fa fa-pinterest-square"></i>
+</a></li>    </ul>
+</div>        </div>
+        <div class="clearfix"></div>
+    </div>
+            <div class="orderForm-additionalGiftContainer">
+            <span class="orderForm-heading">
+                Add something special to this gift <i>(optional)</i>            </span>
+
+            <div class="orderForm-additional_gifts">
+                <div class="additional-gifts">
+                    
+    <div class="cross-sell clearfix">
+                    <div class="item item--extra additional-gift">
+                <div class="item-imgContainer item-imgContainer--extra additional_gift-image">
+                    <img class="item-img item-img--extra" src="images/20151218114145_file_567499b9475e6.jpg" alt="Wine">
+                    <span class="item-viewDetails item_options-hover">
+                        <span class="viewDetails-btn btn btn-success col-md-12">
+                            Add to Cart                        </span>
+                    </span>
+                </div>
+                <span class="itemInfo item_name">
+                    <span class="itemInfo-name">Wine</span>
+                    <span class="itemInfo-priceContainer itemInfo-price itemInfo-price--extra item_price clearfix">$15.00</span>
+                </span>
+                <input type="checkbox" class="checkbox upsell-checkbox hidden" id="upsell-checkbox172535" name="crosssell_products[]" value="172535" hidden>
+            </div>
+                    <div class="item item--extra additional-gift">
+                <div class="item-imgContainer item-imgContainer--extra additional_gift-image">
+                    <img class="item-img item-img--extra" src="images/20160114083324_file_56980614929f9.jpg" alt="ESSENTIAL AROMATIC OIL">
+                    <span class="item-viewDetails item_options-hover">
+                        <span class="viewDetails-btn btn btn-success col-md-12">
+                            Add to Cart                        </span>
+                    </span>
+                </div>
+                <span class="itemInfo item_name">
+                    <span class="itemInfo-name">ESSENTIAL AROMATIC OIL</span>
+                    <span class="itemInfo-priceContainer itemInfo-price itemInfo-price--extra item_price clearfix">$4.00</span>
+                </span>
+                <input type="checkbox" class="checkbox upsell-checkbox hidden" id="upsell-checkbox178087" name="crosssell_products[]" value="178087" hidden>
+            </div>
+                    <div class="item item--extra additional-gift">
+                <div class="item-imgContainer item-imgContainer--extra additional_gift-image">
+                    <img class="item-img item-img--extra" src="images/20151218113526_file_5674983e270cc.jpg" alt="Mylar Baloon">
+                    <span class="item-viewDetails item_options-hover">
+                        <span class="viewDetails-btn btn btn-success col-md-12">
+                            Add to Cart                        </span>
+                    </span>
+                </div>
+                <span class="itemInfo item_name">
+                    <span class="itemInfo-name">Mylar Baloon</span>
+                    <span class="itemInfo-priceContainer itemInfo-price itemInfo-price--extra item_price clearfix">$4.99</span>
+                </span>
+                <input type="checkbox" class="checkbox upsell-checkbox hidden" id="upsell-checkbox172534" name="crosssell_products[]" value="172534" hidden>
+            </div>
+                    <div class="item item--extra additional-gift">
+                <div class="item-imgContainer item-imgContainer--extra additional_gift-image">
+                    <img class="item-img item-img--extra" src="images/20151218114413_file_56749a4d4d6bb.jpg" alt="Chocolates">
+                    <span class="item-viewDetails item_options-hover">
+                        <span class="viewDetails-btn btn btn-success col-md-12">
+                            Add to Cart                        </span>
+                    </span>
+                </div>
+                <span class="itemInfo item_name">
+                    <span class="itemInfo-name">Chocolates</span>
+                    <span class="itemInfo-priceContainer itemInfo-price itemInfo-price--extra item_price clearfix">$10.00</span>
+                </span>
+                <input type="checkbox" class="checkbox upsell-checkbox hidden" id="upsell-checkbox172536" name="crosssell_products[]" value="172536" hidden>
+            </div>
+                    <div class="item item--extra additional-gift">
+                <div class="item-imgContainer item-imgContainer--extra additional_gift-image">
+                    <img class="item-img item-img--extra" src="images/20160114082318_file_569803b61b316.jpg" alt="FRSGANCE LAMP">
+                    <span class="item-viewDetails item_options-hover">
+                        <span class="viewDetails-btn btn btn-success col-md-12">
+                            Add to Cart                        </span>
+                    </span>
+                </div>
+                <span class="itemInfo item_name">
+                    <span class="itemInfo-name">FRSGANCE LAMP</span>
+                    <span class="itemInfo-priceContainer itemInfo-price itemInfo-price--extra item_price clearfix">$12.00</span>
+                </span>
+                <input type="checkbox" class="checkbox upsell-checkbox hidden" id="upsell-checkbox178076" name="crosssell_products[]" value="178076" hidden>
+            </div>
+                    <div class="item item--extra additional-gift">
+                <div class="item-imgContainer item-imgContainer--extra additional_gift-image">
+                    <img class="item-img item-img--extra" src="images/20160114083041_file_56980571e37e5.jpg" alt="PLUSH ANIMALS">
+                    <span class="item-viewDetails item_options-hover">
+                        <span class="viewDetails-btn btn btn-success col-md-12">
+                            Add to Cart                        </span>
+                    </span>
+                </div>
+                <span class="itemInfo item_name">
+                    <span class="itemInfo-name">PLUSH ANIMALS</span>
+                    <span class="itemInfo-priceContainer itemInfo-price itemInfo-price--extra item_price clearfix">$10.00</span>
+                </span>
+                <input type="checkbox" class="checkbox upsell-checkbox hidden" id="upsell-checkbox178083" name="crosssell_products[]" value="178083" hidden>
+            </div>
+            </div>
+
+<script>
+    jQuery(document).ready(function($) {
+        function setGiftsToForm() {
+            var cross_sells = [];
+            $('#orderForm .additional-gifts :checkbox:checked').each(function () {
+                cross_sells.push($(this).val());
+            });
+            cross_sells = cross_sells.join(',');
+
+            $('input[name="related_product"]').val(cross_sells);
+        }
+
+        setGiftsToForm();
+
+        $('#orderForm .additional-gifts .item').click(function() {
+            $(this).toggleClass('active');
+
+            var checkBoxes = $(this).find('input');
+            checkBoxes.prop("checked", !checkBoxes.prop("checked"));
+
+            if (checkBoxes.is(':checked')) {
+                $(this).find('.btn-success').addClass('btn-danger').html('Remove');
+            } else {
+                $(this).find('.btn-success').removeClass('btn-danger').html('Add to Gift');
+            }
+            setGiftsToForm();
+        });
+    });
+</script>
+                </div>
+            </div>
+        </div>
+    
+    <div class="modal fade" id="instorePickupDialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Please Note</h4>
+                </div>
+                <div class="modal-body">
+                    <p>We only offer in-store pickup on <span class="selected-date"></span>. If you would like to have this item delivered, please select a different delivery date.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-proceed-checkout orderForm-order-now btn-success">Proceed to Checkout</button>
+                    <button type="button" class="btn btn-default btn-change-delivery" data-dismiss="modal">Change Delivery Date</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--@bloom_fpc__start-form_key@-->
+<input type="hidden" name="form_key" value="Y29ZqFdfalM17JXp">
+<!--@bloom_fpc__stop-form_key@-->    <input type="hidden" name="isAjax" value="1">
+    <input type="hidden" name="related_product" id="related-products-field" value>
+    <input type="hidden" name="qty" id="qty" maxlength="12" value="0" title="Qty">
+    <input type="hidden" name="delivery_date" id="delivery_date" value>
+    <input type="hidden" name="price_special" id="modification_f" value>
+    <input type="hidden" name="pickup_only" id="pickup_only" value="0">
+    <input type="hidden" name="delivery_only" id="delivery_only" value="0">
+    <input type="hidden" name="upgrade" id="upgrade_f" value="standard">
+    <input type="hidden" name="vendor_account_id" value="vndr_ZcwpBvySJVh6Kzev">
+</form>
+
+
+
+<script>
+
+    /**
+     * Create the main widget for linking other widgets
+     *
+     * @see js/bloomnation/order-widget.js
+     */
+    var orderWidget = new OrderWidget().init({
+        elements: {
+            order_form: '#orderForm',
+            order_button: '#orderForm .orderForm-order-now',
+            delivery_date: '#orderForm #delivery_date',
+            pickup_only: '#orderForm #pickup_only',
+            delivery_only: '#orderForm #delivery_only',
+            message: '#orderForm .alert-danger',
+            success_message: '#orderForm .alert-notification'
+        },
+        messages: {
+            error_select_date: 'Please select a delivery date to place this order.'
+        },
+        events: {
+            before_ajax: function(orderWidget, h) {
+                h('#LOADING').show();
+                h('#orderForm .orderForm-order-now')
+                    .setHtml('Placing Order <span class="fa fa-circle-o-notch fa-spin"></span>');
+            },
+            after_ajax: function(orderWidget, h, response) {
+                h('#LOADING').hide();
+                h('#orderForm .orderForm-order-now').setHtml('Order Now');
+
+                if (response.submit_type == 'add_to_cart') {
+                    if (response.cart_items_count) {
+                        h('#header a.cart_button').setAttribute('href', response.redirect);
+                        h('#header a.cart_button .cart_text').setHtml('(' + response.cart_items_count + ') Cart');
+                    }
+                } else {
+                    location.href = response.redirect;
+                }
+            },
+            error_ajax: function(orderWidget, h) {
+                h('#LOADING').hide();
+                h('#orderForm .orderForm-order-now').setHtml('Order Now');
+            }
+        },
+        params: {
+            debug_url: 'https://yosvi.com/fcc/index/d/',
+            status: 1,
+            ajax: true,
+            use_ajax_message: true
+        }
+
+    });
+
+    // Create order widgets
+    var deliveryFeeWidget = new DeliveryFeeWidget(orderWidget);
+    var deliveryTimerWidget = new DeliveryTimerWidget(orderWidget);
+    var deliveryCalendarWidget = new DeliveryCalendarWidget(orderWidget);
+    var pricingWidget = new PricingWidget(orderWidget);
+
+    jQuery(document).ready(function() {
+
+        /**
+         * Init fee widget for getting delivery information be zip code
+         *
+         * @see js/bloomnation/order-widget/delivery_fee.js
+         */
+        deliveryFeeWidget.init({
+            elements: {
+                message: '#delivery-fee-widget .bloom-delivery-text',
+                zip_input: '#delivery-fee-widget .zip-input',
+                submit_button: '#delivery-fee-widget .delivery-check-btn',
+                zip_check: '#delivery-fee-widget .bloom-delivery-type-code',
+                show_zip_check_button: '#delivery-fee-widget .delivery-change-zip'
+            },
+            params: {
+                ajax: {
+                    url: 'https://yosvi.com/bloom_vendor/index/checkZipForDelivery/',
+                    data: {
+                        vendor_account_id: 'vndr_ZcwpBvySJVh6Kzev',
+                        product_id: 183714                    }
+                }
+            },
+            messages: {
+                not_found: 'Oh no! ' +  'The florist does'  + ' not deliver to {zip}',
+                box_not_found: 'Oh no! ' +  'The florist does'  + ' not ship to {zip}',
+                zone_disabled: 'Oh no! ' +  'The florist does'  + ' not deliver to {zip} on your selected date. Try another day.',
+            }
+        });
+
+        /**
+         * Init timer widget for showing time of availability of delivery today
+         *
+         * @see js/bloomnation/order-widget/delivery_timer.js
+         */
+        deliveryTimerWidget.init({
+            elements: {
+                widget: '#delivery-timer-widget',
+                message: '#delivery-timer-widget .part-2'
+            },
+            params: {
+                vendor_timezone: "America/New_York"
+            }
+        });
+
+        /**
+         * Init calendar widget for choosing delivery date
+         *
+         * @see js/bloomnation/order-widget/delivery_calendar.js
+         */
+        deliveryCalendarWidget.init({
+            elements: {
+                widget: '#delivery-calendar-widget',
+                switcher: '#delivery-calendar-widget .delivery-list',
+                delivery_date: '#delivery_date',
+                datepickr: '#f-orderForm__date',
+                pickup_only: '#orderForm #pickup_only'
+            },
+            buttons: {
+                default: {
+                    template:
+                        '<li class="switcher_option btn btn-large btn-order-date col-xs-4 col-sm-4 col-md-4 col-lg-4 ' +
+                            'js-deliveryDateBtn"><div class="deliveryBtn-innerContainer"></div></li>',
+                    selector_wrapper: '.deliveryBtn-innerContainer',
+                    message: {
+                        default: {
+                            text: '{weekday} <b class="deliveryBtn-text">{date}</b>',
+                            date_format: {
+                                weekday: 'ddd',
+                                date: 'MMM D'
+                            }
+                        }
+                    }
+                },
+                today: {
+                    template:
+                        '<li class="switcher_option btn btn-large delivery-item-today btn-order-date col-xs-4 col-sm-4 ' +
+                            'col-md-4 col-lg-4 js-deliveryDateBtn"><div class="deliveryBtn-innerContainer"></div></li>',
+                    selector_wrapper: '.deliveryBtn-innerContainer',
+                    message: {
+                        default: {
+                            text: 'Today <b class="deliveryBtn-text">{date}</b>',
+                            date_format: {
+                                date: 'MMM D'
+                            }
+                        }
+                    }
+                },
+                calendar: {
+                    template:
+                        '<li class="switcher_option btn deliveryDate-btnWrapper col-xs-12">' +
+                            '<div class="input-append date form_datetime btn btn-large btn-order-date ' +
+                                    'btn-order-date-viewmore col-xs-3 col-sm-3 col-md-3 col-lg-3 delivery-item-more ' +
+                                    'js-deliveryDateBtn js-deliveryDateBtn--calendar">' +
+                                '<div class="deliveryBtn-innerContainer deliveryBtn-innerContainer--calendar add-on">' +
+                                '</div>' +
+                                '<input class="js-deliveryDate hasDatepicker" size="16" type="text" ' +
+                                    'value="" id="f-orderForm__date" readonly>' +
+                            '</div>' +
+                        '</li>',
+                    selector_wrapper: '.deliveryBtn-innerContainer',
+                    message: {
+                        init: {
+                            text:
+                                '<i class="fa fa-calendar"></i> ' +
+                                    '<b class="deliveryBtn-text deliveryBtn-text--calendar deliveryBtn-text--desktop ' +
+                                        'js-deliveryDateText">Choose a delivery date</b> ' +
+                                    '<b class="deliveryBtn-text deliveryBtn-text--calendar deliveryBtn-text--mobile ' +
+                                        'js-deliveryDateText">Choose a delivery date</b> ' +
+                                '<i class="fa fa-chevron-down"></i>'
+                        },
+                        default: {
+                            text:
+                                '<i class="fa fa-calendar"></i> ' +
+                                    '<b class="deliveryBtn-text deliveryBtn-text--calendar deliveryBtn-text--desktop ' +
+                                        'js-deliveryDateText">{date_1}</b> ' +
+                                    '<b class="deliveryBtn-text deliveryBtn-text--calendar deliveryBtn-text--mobile ' +
+                                        'js-deliveryDateText">{date_2}</b> ' +
+                                '<i class="fa fa-chevron-down"></i>',
+                            date_format: {
+                                date_1: 'MM/DD/YY',
+                                date_2: 'MM/DD/YY'
+                            }
+                        },
+                        reset: {
+                            text:
+                                '<i class="fa fa-calendar"></i> ' +
+                                    '<b class="deliveryBtn-text deliveryBtn-text--calendar deliveryBtn-text--desktop ' +
+                                        'js-deliveryDateText">{date_1}</b> ' +
+                                    '<b class="deliveryBtn-text deliveryBtn-text--calendar deliveryBtn-text--mobile ' +
+                                        'js-deliveryDateText">{date_2}</b> ' +
+                                '<i class="fa fa-chevron-down"></i>',
+                            date_format: {
+                                date_1: 'MM/DD/YY',
+                                date_2: 'MM/DD/YY'
+                            }
+                        }
+                    }
+                }
+            },
+            params: {
+                selectors: {
+                    switcher_option: '.switcher_option'
+                },
+                vendor_timezone: "America/New_York",
+                vendor_today_date: "2021-04-05",
+                                pickup_only_dates: [],
+                                closed_dates: ["2021-03-28","2021-04-04","2021-04-11","2021-04-18","2021-04-25","2021-05-02","2021-05-16","2021-05-23","2021-05-30","2021-05-31","2021-06-06","2021-06-13","2021-06-20","2021-06-27","2021-07-04","2021-07-11","2021-07-18","2021-07-25","2021-08-01","2021-08-08","2021-08-15","2021-08-22","2021-08-29","2021-09-05","2021-09-06","2021-09-12","2021-09-19","2021-09-26","2021-10-03","2021-10-10","2021-10-17","2021-10-24","2021-10-31","2021-11-07","2021-11-11","2021-11-14","2021-11-21","2021-11-25","2021-11-28","2021-12-05","2021-12-12","2021-12-19","2021-12-25","2021-12-26","2022-01-01","2022-01-02","2022-01-09","2022-01-16","2022-01-23","2022-01-30","2022-02-06","2022-02-13","2022-02-20","2022-02-27","2022-03-06","2022-03-13","2022-03-20","2022-03-27","2022-04-03","2022-04-10","2022-04-17","2022-04-24","2022-05-01"]            }
+        });
+
+        pricingWidget.init({
+            elements: {
+                widget: '#pricing-widget',
+                switcher: '#pricing-widget .up-sell-list',
+                delivery_date: '#delivery_date',
+                price_label: '#pricing-widget .modification_price',
+                price_description: '.up-sell-description-list .price-additional-text',
+                modification_input: '#modification_f',
+                upgrade_input: '#upgrade_f'
+            },
+            params: {
+                                pricing_changes: [{
+                    from_date: '03/30/2021',
+                    to_date: '04/15/2021',
+                    price: 3,
+                    action: 'inc',
+                    type: 'percent',
+                    surge_flag: !!(0)
+                }],
+                                selectors: {
+                    switcher_option: '.btn-order-size'
+                }
+            }
+        });
+
+        // Display surged price by default
+        for (var index = 0; index < pricingWidget.params.pricing_changes.length; ++index) {
+            var pricing_changes = pricingWidget.params.pricing_changes[index];
+            if (pricing_changes.surge_flag) {
+                pricingWidget.calculatePricing(pricing_changes.from_date);
+                break;
+            }
+        }
+
+        //@bloom_fpc__start-order_widget@
+                    deliveryFeeWidget.showCheckZipBox();
+        
+        deliveryCalendarWidget.update({
+            today_delivery_available: 1,
+            cutoff_timestamp: 1617645600000        });
+
+        deliveryTimerWidget.start(1617645600000);
+        //@bloom_fpc__stop-order_widget@
+
+    });
+</script>
+
+<script>
+    jQuery(document).ready(function ($) {
+        $('.orderForm-favorite-btn').click(function(event){
+            if (!$('.icon-compare-liked').is(":visible")) {
+                jQuery.ajax({
+                    url: 'https://yosvi.com/favorites/index/add/',
+                    type:'post',
+                    data: {product_id: 183714},
+                    dataType: 'json',
+                    success: function(data, status, jqXHR) {
+                        if (data.success == true) {
+                            $('.add-to-favorites-msg').hide();
+                            $('.icon-compare-like-outline').hide();
+                            $('.icon-compare-liked').show();
+                            $('.added-to-favorites-msg').show();
+                            var oldFavoriteNumbers = $('.my-account-favorites .my-account-favorite-numbers').text();
+                            oldFavoriteNumbers++;
+                            $('.my-account-favorites .my-account-favorite-numbers').text(oldFavoriteNumbers);
+                        }
+                    }
+                });
+            } else {
+                jQuery.ajax({
+                    url: 'https://yosvi.com/favorites/index/remove/',
+                    type:'post',
+                    data: {product_id: 183714},
+                    dataType: 'json',
+                    success: function(data, status, jqXHR) {
+                        if (data.success == true) {
+                            $('.add-to-favorites-msg').show();
+                            $('.icon-compare-like-outline').show();
+                            $('.icon-compare-liked').hide();
+                            $('.added-to-favorites-msg').hide();
+                            var oldFavoriteNumbers = $('.my-account-favorites .my-account-favorite-numbers').text();
+                            oldFavoriteNumbers--;
+                            $('.my-account-favorites .my-account-favorite-numbers').text(oldFavoriteNumbers);
+                        }
+                    }
+                });
+            }
+
+            return false;
+        });
+
+        $('#instorePickupDialog .btn-proceed-checkout').click(function () {
+            $('#instorePickupDialog').data('proceed-confirmed', true).modal('hide');
+            $('.orderForm-checkout .buttonContainer--order .orderForm-order-now').click();
+        });
+
+        $('.btn-change-delivery').on('click', function(){
+            $('.datepickr-wrapper').addClass('open');
+            setTimeout('jQuery(document).find(\'.hasDatepicker\').focus()', 100);
+        });
+
+        // JOSH RIGHT HERE
+            });
+
+</script>
+    </div>
+
+    <div class="productInfo productInfo--mobile col-xs-12">
+                    <div class="productInfo-item productInfo-storyIcons col-xs-12" style="padding: 0;">
+                <div class="productInfo-storyIcon">
+                    <img src="images/BN-PDP-PS.gif" alt="Flowers are directly from a local florist">
+                    <p>Directly From</p>
+                    <p>A Local Florist</p>
+                </div>
+                <div class="productInfo-storyIcon">
+                    <img src="images/BN-PDP-PS-arrangement.gif" alt="Flowers are designed, arranged, and read to be enjoyed">
+                    <p>Designed, Arranged,</p>
+                    <p>&amp; Ready to be Enjoyed</p>
+                </div>
+                <div class="productInfo-storyIcon">
+                    <img src="images/BN-PDP-PS-handDelivered.gif" alt="Floral arrangements are hand delivered">
+                    <p>Hand Delivered</p>
+                </div>
+            </div>
+        
+        <div class="productInfo-item productInfo-description product_details-product_information col-xs-12">
+            <h3>Product Information</h3>
+            <p>Choose the color of your orchild, yellow, purple, white.... 1 steem</p>
+        </div>
+
+                    <div class="productInfo-item productInfo-subPolicy productInfo-subPolicy--mobile col-xs-12">
+                <h3>Substitution Policy</h3>
+                <div class="subPolicy-preview js-subPolicy substitution">
+                    <p class="first-css-text"></p>
+                    <p class="second-css-text"></p>
+                </div>
+            </div>
+        
+
+            </div>
+</div>
+
+
+<script>
+	jQuery(document).ready(function($) {
+		var lifetime = 3600;
+		var expireAt = Mage.Cookies.expires;
+		if (lifetime > 0) {
+			expireAt = new Date();
+			expireAt.setTime(expireAt.getTime() + lifetime * 1000);
+		}
+		Mage.Cookies.set('external_no_cache', 1, expireAt);
+	});
+</script>
+</section>       
+      
+
+        <section id="footer">
+        <div class="social_media footer-social_media">
+            
+            <div class="row social-innerContainer">
+                                    <a href="https://www.facebook.com/yosviflowers" target="_new" class="facebook footer-socialItem col-xs-6 col-sm-3 col-md-2">
+                        <span class="footer-socialName">Facebook </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-facebook fa-stack-1x"></i>
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                    </span>
+                    </a>
+                
+                                    <a href="https://instagram.com/yosviflowers/" target="_new" class="instagram footer-socialItem col-xs-6 col-sm-3 col-md-2">
+                        <span class="footer-socialName">Instagram </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-instagram fa-stack-1x"></i>
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                    </span>
+                    </a>
+                
+                                    <a href="https://twitter.com/Yosvi3" target="_new" class="twitter footer-socialItem col-xs-6 col-sm-3 col-md-2">
+                        <span class="footer-socialName">Twitter </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-twitter fa-stack-1x"></i>
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                    </span>
+                    </a>
+                
+                                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJEbPrlxm32YgRCsBPMBU6c0A" target="_new" class="googleplaces footer-socialItem col-xs-6 col-sm-3 col-md-2">
+                        <span class="footer-socialName">Google</span>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-google-white fa-stack-1x"></i>
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                    </span>
+                    </a>
+                
+                
+                                    <a href="http://www.yelp.com/biz/yosvi-florist-miami" target="_new" class="yelp footer-socialItem col-xs-6 col-sm-3 col-md-2">
+                        <span class="footer-socialName">Yelp </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-yelp fa-stack-1x"></i>
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                    </span>
+                    </a>
+                
+                                    <a href="https://yosvi.com/blog/rss/" target="_new" class="blog-rss footer-socialItem col-xs-6 col-sm-3 col-md-2">
+                        <span class="footer-socialName">Blog RSS </span>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-rss fa-stack-1x"></i>
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                    </span>
+                    </a>
+                
+                
+                
+                <div class="clearfix visible-xs visible-sm"><br></div>
+
+                                    <div class="poweredbybloomnation bloomnationRep col-xs-12 col-sm-12 col-md-12">
+                                                    <a href="https://yosvi.com/about-us/" class="member_of_bloomnation">
+                                <span class="bloomnationRep-text">Premier florist on</span>
+                                <img class="bloomnationRep-img" src="fonts/ps_footer_logo.svg" alt="BloomNation Member">
+                            </a>
+                                            </div>
+                            </div>
+        </div>
+
+        <div class="footer-more_information footer-info row">
+            <div class="footer-infoItem footer-infoItem--email col-xs-12 col-sm-4 col-md-4">
+                <div class="infoItem-header infoItem-header--email">Email Address</div>
+                                    <span class="infoItem-text infoItem-text--email"><a href="mailto:yosviflowers@gmail.com">yosviflowers@gmail.com</a></span>
+                                
+                                    <br>
+                    <div class="infoItem-header infoItem-header--delivery">
+                        <a href="https://yosvi.com/delivery-service-area/">Where We Deliver</a>
+                    </div>
+                            </div>
+            <div class="footer-infoItem footer-infoItem--address col-xs-12 col-sm-4 col-md-4">
+                <div class="infoItem-header infoItem-header--store">Store &amp; Pick-Up Address</div>
+                <span class="infoItem-text infoItem-text--name">Yosvi</span>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=&destination=2835+NW+7+ST+Miami%2C+FL%2C+33125" target="_blank">                    <span class="infoItem-text infoItem-text--street">2835 NW 7 ST</span>
+                    <span class="infoItem-text infoItem-text--zip">
+                        Miami,                         FL.
+                        33125                    </span>
+                    <span class="infoItem-text infoItem-text--phone">(305) 642-4242</span>
+                </a>                            </div>
+            <div class="footer-infoItem footer-infoItem--hours col-xs-12 col-sm-4 col-md-4">
+                <div class="infoItem-header infoItem-header--hours">Hours of Operation</div>
+                                                        <span class="infoItem-text infoItem-text--weekdays">
+                    Monday: 9:00 am to 6:00 pm                    </span>
+                                                        <span class="infoItem-text infoItem-text--weekdays">
+                    Tuesday: 9:00 am to 6:00 pm                    </span>
+                                                        <span class="infoItem-text infoItem-text--weekdays">
+                    Wednesday: 9:00 am to 6:00 pm                    </span>
+                                                        <span class="infoItem-text infoItem-text--weekdays">
+                    Thursday: 9:00 am to 6:00 pm                    </span>
+                                                        <span class="infoItem-text infoItem-text--weekdays">
+                    Friday: 9:00 am to 6:00 pm                    </span>
+                                                            <span class="infoItem-text infoItem-text--weekends">
+                        Saturday: 9:00 am to 5:00 pm                    </span>
+                                </div>
+        </div>
+
+        <div class="footer-copyright">
+            <a href="https://yosvi.com/terms-of-service/">Terms of Service</a> &ndash;
+            <a href="https://yosvi.com/privacy-policy/">Privacy Policy</a>
+            <span> &copy; All Rights Reserved</span>
+        </div>
+
+        
+    </section>
+     <script>
+    //@bloom_fpc__start-fpc@
+    var BloomFPC = false;
+    //@bloom_fpc__stop-fpc@
+</script>
+<div class="announcement" style="display: none">
+    <div class="announcement-bg"></div>
+    <div class="splash">
+        <div class="splash-wrapper">
+            <div>
+                <span style="color: rgba(0,0,0,0.75);letter-spacing: -0.1em;font-weight: 400;font-size: 20px;line-height: 1.15;">Your browser is not supported</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/product.js"></script>
+<script src="js/product_options.js"></script>
+<script src="js/configurable.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/calendar-setup.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/moment-timezone.min.js"></script>
+<script src="js/moment.data.america.min.js"></script>
+<script src="js/moment.data.pacific.min.js"></script>
+<script src="js/datepickr.additional.js"></script>
+ 
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"0ac16663c3","applicationID":"6732204,2307825","transactionName":"ZlBUN0YDXRFYV0FcX18adwBAC1wMFldUQVFdWlFMRBBcBkxXQRpGWFBB","queueTime":0,"applicationTime":732,"atts":"ShdDQQ4ZTk4bVRcPS0xI","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>
+
+
